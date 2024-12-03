@@ -47,4 +47,21 @@
 #define HDC2010_MANU_ID_HIGH_REG        0xFD
 #define HDC2010_DEV_ID_HIGH_REG         0xFF
 
+/*
+*   SENSOR STRUCT
+*/
+
+typedef struct hdc2010
+{
+    /* I2C handle */
+    I2C_HandleTypeDef *i2cHandle;
+
+    /* Temperatur Data */
+    float temp_C;
+
+    /* Humidity Data */
+    float humid;
+};
+
+
 #endif
