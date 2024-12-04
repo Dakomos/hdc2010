@@ -63,9 +63,24 @@ uint8_t HDC2010_Init ( HDC2010 *dev, I2C_HandleTypeDef *i2cHandle ) {
 
 HAL_StatusTypeDef HDC2010_ReadTemp ( HDC2010 *dev ){
 
+    uint8_t temp[2];
+
+    HDC2010_ReadRegister(dev, HDC2010_TEMP_LOW_REG, temp[0])
+    HDC2010_ReadRegister(dev, HDC2010_TEMP_HIGH_REG, temp[1])
+
+    dev->temp_C = ((((temp[0] << 8) | temp[1]) *165)/65536) - 40;
+
 }
 
 HAL_StatusTypeDef HDC2010_ReadHum ( HDC2010 *dev ){
+
+    uint8_t humid[2];
+
+    HDC2010_ReadRegister(dev, HDC2010_HUM_LOW_REG, humid[0])
+    HDC2010_ReadRegister(dev, HDC2010_HUM_HIGH_REG, humid[1])
+
+    dev->humid = ((((humid[0] << 8) | humid[1]) *100)/65536); 
+
 
 }
 
@@ -90,18 +105,3 @@ HAL_StatusTypeDef HDC2010_WriteRegister ( HDC2010 *dev, uint8_t reg, uin8_t *dat
     return HAL_I2C_Mem_Write( dev->i2cHandle, HDC2010_I2C_ADDR, reg, I2C_MEMADD_SIZE_8BIT, data, 1, HAL_MAX_DELAY );
 
 }
-
-
-/*
-void hdc2010_read_temp(I2C_HandleTypeDef *handle){
-    uint16_t temp = 0;
-    temp = temp/2^16*165-40 // for high
-    temp = temp/2^8*165-40 // for low
-
-}
-
-void hdc2010_read_hum(I2C_HandleTypeDef *handle){
-    uint16_t hum = 0;
-    hum = hum/2^16*100 // for high
-    hum = hum/2^8*100 // for low
-}*/

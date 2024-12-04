@@ -20,17 +20,15 @@
 
 #define HDC2010_I2C_ADDR                (0x80 <<) // 1000000 in BIN, Seite 3 Datasheet
 
-#define HDC2010_HUM_LOW_REG             0x02
-#define HDC2010_TEMP_LOW_REG            0x00
-#define HDC2010_DEV_ID_LOW_REG          0xFE
-
 
 /*
 *   REGISTERS
 */
 
-#define HDC2010_TEMP_HIGH_REG           0x01
-#define HDC2010_HUM_HIGH_REG            0x03
+#define HDC2010_TEMP_LOW_REG            0x00 // Data sheet page 18
+#define HDC2010_TEMP_HIGH_REG           0x01 // Temperatur is a 14 bit integer stored in two registers. The two LSB are always 0
+#define HDC2010_HUM_LOW_REG             0x02 // Data sheet page 18
+#define HDC2010_HUM_HIGH_REG            0x03 // Humidity is a 14 bit integer stored in two registers. The two LSB are always 0
 #define HDC2010_INTERRUPT_REG           0x04
 #define HDC2010_TEMP_MAX_REG            0x05
 #define HDC2010_HUM_MAX_REG             0x06
@@ -41,10 +39,11 @@
 #define HDC2010_TEMP_THR_HIGH_REG       0x0B
 #define HDC2010_RH_THR_LOW_REG          0x0C
 #define HDC2010_RH_THR_HIGH_REG         0x0D
-#define HDC2010_RESET_CONF_REG          0x0E
-#define HDC2010_MEASURE_CONF_REG        0x0F
+#define HDC2010_RESET_CONF_REG          0x0E // Data sheet page 25. Settings for auto measurement modes
+#define HDC2010_MEASURE_CONF_REG        0x0F // Data sheet page 26. Setting for standby or measurement. Setting for precision of temperatur and humidty integer
 #define HDC2010_MANU_ID_LOW_REG         0xFC
 #define HDC2010_MANU_ID_HIGH_REG        0xFD
+#define HDC2010_DEV_ID_LOW_REG          0xFE
 #define HDC2010_DEV_ID_HIGH_REG         0xFF
 
 /*
