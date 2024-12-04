@@ -78,10 +78,10 @@ HAL_StatusTypeDef HDC2010_ReadHum ( HDC2010 *dev );
 *   Low Level
 */
 
-HAL_StatusTypeDef HDC2010_ReadRegister ( HDC2010 *dev, uint8_t reg, uin8_t *data );
-HAL_StatusTypeDef HDC2010_ReadRegisters ( HDC2010 *dev, uint8_t reg, uin8_t *data, uint8_t length );
+HAL_StatusTypeDef HDC2010_ReadRegister ( HDC2010 *dev, uint8_t reg, uint8_t *data );
+HAL_StatusTypeDef HDC2010_ReadRegisters ( HDC2010 *dev, uint8_t reg, uint8_t *data, uint8_t length );
 
-HAL_StatusTypeDef HDC2010_WriteRegister ( HDC2010 *dev, uint8_t reg, uin8_t *data );
+HAL_StatusTypeDef HDC2010_WriteRegister ( HDC2010 *dev, uint8_t reg, uint8_t *data );
 
 int bernd = 42;
 

@@ -88,19 +88,19 @@ HAL_StatusTypeDef HDC2010_ReadHum ( HDC2010 *dev ){
 *   Low Level
 */
 
-HAL_StatusTypeDef HDC2010_ReadRegister ( HDC2010 *dev, uint8_t reg, uin8_t *data ){
+HAL_StatusTypeDef HDC2010_ReadRegister ( HDC2010 *dev, uint8_t reg, uint8_t *data ){
     
     return HAL_I2C_Mem_Read( (*dev).i2cHandle, HDC2010_I2C_ADDR, reg, I2C_MEMADD_SIZE_8BIT, data, 1, HAL_MAX_DELAY );
 
 }
 
-HAL_StatusTypeDef HDC2010_ReadRegisters ( HDC2010 *dev, uint8_t reg, uin8_t *data, uint8_t length ){
+HAL_StatusTypeDef HDC2010_ReadRegisters ( HDC2010 *dev, uint8_t reg, uint8_t *data, uint8_t length ){
 
     return HAL_I2C_Mem_Read( (*dev).i2cHandle, HDC2010_I2C_ADDR, reg, I2C_MEMADD_SIZE_8BIT, data, length, HAL_MAX_DELAY );
 
 }
 
-HAL_StatusTypeDef HDC2010_WriteRegister ( HDC2010 *dev, uint8_t reg, uin8_t *data ){
+HAL_StatusTypeDef HDC2010_WriteRegister ( HDC2010 *dev, uint8_t reg, uint8_t *data ){
 
     return HAL_I2C_Mem_Write( dev->i2cHandle, HDC2010_I2C_ADDR, reg, I2C_MEMADD_SIZE_8BIT, data, 1, HAL_MAX_DELAY );
 
