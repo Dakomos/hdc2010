@@ -18,7 +18,7 @@
 *   DEFINES
 */
 
-#define HDC2010_I2C_ADDR                (0x80 <<) // 1000000 in BIN, Seite 3 Datasheet
+#define HDC2010_I2C_ADDR                0x80 << // 1000000 in BIN, Seite 3 Datasheet
 
 
 /*
