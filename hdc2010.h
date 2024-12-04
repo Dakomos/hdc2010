@@ -50,8 +50,7 @@
 *   SENSOR STRUCT
 */
 
-typedef struct HDC2010
-{
+typedef struct {
     /* I2C handle */
     I2C_HandleTypeDef *i2cHandle;
 
@@ -60,7 +59,7 @@ typedef struct HDC2010
 
     /* Humidity Data */
     float humid;
-};
+} HDC2010;
 
 /*
 *   Init
