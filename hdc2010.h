@@ -50,7 +50,7 @@
 *   SENSOR STRUCT
 */
 
-typedef struct hdc2010
+typedef struct HDC2010
 {
     /* I2C handle */
     I2C_HandleTypeDef *i2cHandle;
