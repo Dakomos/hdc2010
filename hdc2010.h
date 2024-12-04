@@ -1,24 +1,27 @@
 /*
 *
 *   HDC2010 Humidity and Temperatur I2C Driver
-*   
+*
 *   Author: Leonard Schmitt
 *   Created: 3 Dezember 2024
 *
 *
 */
 
-#ifndef HDC2010_I2C_DRIVER_H
-#define HDC2010_I2C_DRIVER_H
-
 #include "stm32l4xx_hal.h" // Needed for I2C
 #include <stdint.h>
+
+#ifndef HDC2010_I2C_DRIVER_H
+#define HDC2010_I2C_DRIVER_H
 
 /*
 *   DEFINES
 */
 
-#define HDC2010_I2C_ADDR                0x80 << // 1000000 in BIN, Seite 3 Datasheet
+
+
+
+#define HDC2010_I2C_ADDR                0x80 << 1 // 1000000 in BIN, Seite 3 Datasheet
 
 
 /*
