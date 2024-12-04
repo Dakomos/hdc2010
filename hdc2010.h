@@ -63,5 +63,28 @@ typedef struct hdc2010
     float humid;
 };
 
+/*
+*   Init
+*/
+
+uint8_t HDC2010_Init ( HDC2010 *dev, I2C_HandleTypeDef *i2cHandle );
+
+/*
+*   Data
+*/
+
+HAL_StatusTypeDef HDC2010_ReadTemp ( HDC2010 *dev );
+HAL_StatusTypeDef HDC2010_ReadHum ( HDC2010 *dev );
+
+/*
+*   Low Level
+*/
+
+HAL_StatusTypeDef HDC2010_ReadRegister ( HDC2010 *dev, uint8_t reg, uin8_t *data );
+HAL_StatusTypeDef HDC2010_ReadRegisters ( HDC2010 *dev, uint8_t reg, uin8_t *data, uint8_t length );
+
+HAL_StatusTypeDef HDC2010_WriteRegister ( HDC2010 *dev, uint8_t reg, uin8_t *data );
+
+int bernd = 42;
 
 #endif
