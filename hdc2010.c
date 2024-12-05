@@ -57,6 +57,8 @@ uint8_t HDC2010_Init ( HDC2010 *dev, I2C_HandleTypeDef *i2cHandle ) {
 
 }
 
+void HDC2010_Standby
+
 /*
 *   Data
 */
@@ -67,7 +69,10 @@ HAL_StatusTypeDef HDC2010_ReadTemp ( HDC2010 *dev ){
     HAL_StatusTypeDef status;
 
     status = HDC2010_ReadRegister(dev, HDC2010_TEMP_LOW_REG, temp[0]);
+    if (status != HAL_OK) return status;
+
     status = HDC2010_ReadRegister(dev, HDC2010_TEMP_HIGH_REG, temp[1]);
+    if (status != HAL_OK) return status;
 
     dev->temp_C = ((((temp[0] << 8) | temp[1]) *165)/65536) - 40;
 
@@ -81,7 +86,10 @@ HAL_StatusTypeDef HDC2010_ReadHum ( HDC2010 *dev ){
     HAL_StatusTypeDef status;
 
     status = HDC2010_ReadRegister(dev, HDC2010_HUM_LOW_REG, humid[0]);
+    if (status != HAL_OK) return status;
+
     status = HDC2010_ReadRegister(dev, HDC2010_HUM_HIGH_REG, humid[1]);
+    if (status != HAL_OK) return status;
 
     dev->humid = ((((humid[0] << 8) | humid[1]) *100)/65536);
 
