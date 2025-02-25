@@ -50,10 +50,6 @@ uint8_t HDC2010_Init ( HDC2010 *dev, I2C_HandleTypeDef *i2cHandle ) {
     }
 
     /* Start measurement ( Data sheet page 26 )*/
-    regData[0] = 0x01;
-
-    status = HDC2010_WriteRegister ( dev, HDC2010_MEASURE_CONF_REG, &regData[0] );
-    errNum += ( status != HAL_OK );
 
     return errNum;
 
